@@ -1,4 +1,13 @@
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  reactStrictMode: true,
+  experimental: {
+    reactRoot: true
+  }
+}
+
 module.exports = {
+  ...nextConfig,
   webpack: (config) => {
     config.resolve.alias = {
       ...(config.resolve.alias || {}),
@@ -11,6 +20,6 @@ module.exports = {
       '.web.tsx',
       ...config.resolve.extensions,
     ]
-    return config
+    return config;
   },
 }
